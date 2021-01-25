@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LukeAirTool Launcher</title>
+    <style>
+         @font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5fBBc4.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #2a2a2a; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #555; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #888; 
+}
+
+        body{
+            background-color: #2a2a2a;
+            font-family: Roboto;
+            margin-right: 190px;
+            color: white;
+        }
+        .menubar-menu-button{
+            display: none;
+        }
+        button#download_button{
+            margin-right: 50px !important;
+            z-index: 2;
+        }
+
+        button:focus{
+            outline: none;
+        }
+        #branding_header{
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            width: 400px;
+            display: block;
+            margin-right: 190px;
+        }
+        #branding-version{
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            z-index: 2; 
+            width: 400px;
+            margin-right: 190px;
+            display: block;
+        }
+
+        #download_progress{
+            float: right;
+            position: relative;
+            color: white;
+            display: block;
+            margin-right: 190px;
+        }
+
+        #progresbar{
+            height: 10px;
+            background-color: #2a2a2a;
+            width: 200px;
+            float: right;
+            border-radius: 5px;
+            display: block;
+            margin-right: 190px;
+        }
+
+        #progresbar_sub{
+            width: 0%;
+            height: 10px;
+            background-color:#00b4ff;
+            border-radius: 5px;
+            display: block;
+            margin-right: 190px;
+        }
+        #news{
+            margin-left: 10px;
+            color: white;
+            margin-right: 200px;
+            display: block;
+            margin-top: 20px;
+        }
+
+        #news_header{
+            color: white;
+            font-weight: bold;
+            font-size: 40px;
+            display: block;
+        }
+        
+        #news_sub{
+            color: white;
+            font-size: 20px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        #news_content{
+            border: 2px solid grey;
+            margin-top: 10px;
+            padding: 10px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        #menu{
+            width: 200px;
+            background-color: rgb(51, 47, 47);
+            float: right;
+            height: 100vh;
+            color: white;
+            position: fixed;
+            z-index: 3;
+            right: 0;
+            top: 0;
+            margin-top: 30px;
+        }
+        #menu ul{
+            list-style-type: none;
+            padding-left: 0px;
+            margin-top: 0px;
+        }
+
+        #menu ul li{
+            padding: 5px 5px 5px 0px;
+            height: 100px;
+            width: 100%; 
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            cursor: pointer;
+        }
+
+        #menu ul li:hover{
+            background-color: rgb(76, 71, 71);
+            
+        }
+
+        #settings{
+            bottom: 40px;
+            position: absolute;
+            margin-left: 50px;
+        }
+
+        #Settings_header{
+            color: white;
+            font-weight: bold;
+            font-size: 40px;
+            display: block;
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+        #form-input{
+            margin-top: 30px;
+            text-align: center;
+            margin-right: 190px;
+        }
+        #form-input-headline{
+            font-size: 20px;
+        }
+        input{
+            width: 50%;
+            height: 50px;
+            background-color:rgb(63, 63, 63);
+            border: 0px solid;
+            margin-top: 5px;
+            border-radius: 10px;
+            padding-left: 10px;
+            color: white;
+            font-family: Roboto;
+            font-size: 15px;
+        }
+        textarea{
+            padding-top: 10px;
+            width: 100%;
+            min-height: 300px;
+            background-color:rgb(63, 63, 63);
+            border: 0px solid;
+            margin-top: 5px;
+            border-radius: 10px;
+            padding-left: 10px;
+            color: white;
+            font-family: Roboto;
+            font-size: 15px;
+            resize: none;
+        }
+        
+        input:focus, textarea:focus{
+            outline: none;
+            color: white;
+        }
+
+        input::-ms-value{
+            padding-left: 10px;
+        }
+
+        #submit_buton{
+            text-align: center;
+        }
+
+        #settings_container{
+            position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  width: 1500px;
+  z-index: 2;
+  
+        }
+        .checkmark__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #7ac142;
+  fill: none;
+  /* animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards; */
+}
+
+.checkmark {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 2;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  margin: 10% auto;
+  box-shadow: inset 0px 0px 0px #7ac142;
+  /* animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both; */
+}
+
+.checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  /* animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards; */
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes scale {
+  0%, 100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+@keyframes fill {
+  100% {
+    box-shadow: inset 0px 0px 0px 30px #7ac142;
+  }
+}
+@keyframes fadeinbox{
+    0%{
+        opacity: 0;
+        padding-left: 0px;
+        padding-top: 0px;
+    }
+     100%{
+        opacity: 1; 
+        height: 200px;
+    width: 400px; 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-left: 0px;
+    padding-top: 0px;
+    }
+    }
+
+    @keyframes fadeoutbox{
+    100%{
+        opacity: 0;
+        padding-left: 0px;
+        padding-top: 0px;
+    }
+     0%{
+        opacity: 1; 
+        height: 200px;
+    width: 400px; 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-left: 0px;
+    padding-top: 0px;
+    }
+    }
+
+    #box{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 200px;
+    width: 400px;
+    background-color: #2a2a2a;
+    z-index: 300;
+    border-radius: 5px;
+    display: none;
+    }
+
+ 
+    #Box{
+        -webkit-box-shadow: 8px 8px 15px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 8px 8px 15px 0px rgba(0,0,0,0.75);
+box-shadow: 8px 8px 15px 0px rgba(0,0,0,0.75);
+    }
+    @keyframes backin{
+        from{
+            opacity: 0;
+        }
+        to{
+            opacity: 0.5;
+        }
+    }
+    @keyframes backout{
+        to{
+            opacity: 0;
+        }
+        from{
+            opacity: 0.5;
+        }
+    }
+    #done{opacity: 0; display: none; z-index: 100; position: relative; height: 100vh; width: 100%; background-color: black;margin-right: 190px;}
+    #content{
+    display: grid;
+    margin: auto;
+    padding: 8px;
+    grid-template-columns: repeat(auto-fit, 250px);
+    grid-auto-rows: minmax(200px, auto);
+    grid-gap: 8px;
+    }
+</style>
+</head>
+<body>
+    <div class="slideshow-container" style="margin-right: 190px;">
+
+        <div class="mySlides fade"  style="display:  flex; justify-content: center;
+        align-items: center; height: 0px;">
+          <img src="./pics/place1.png" style="width:100%; margin-top: 300px;">
+        </div>
+        </div>
+        <br>
+        <div id="download_container" style="margin-top: -100px; z-index: 1; position: relative; margin-right: 10px; margin-left: 10px; width: auto; display: block; margin-right: 190px;">
+            <div id="branding">
+                <div id="branding_header">
+        
+                    LukeAirTool
+                </div>
+                <div id="branding-version">
+                    v.2.0.0.7
+                </div>
+            </div><br>
+            <div id="download_progress" style="display: none; margin-top:-60px; margin-right: -150px;">
+                <section id="download_progress_number">0MB/16MB</section>
+                <div id="progresbar">
+                    <div id="progresbar_sub"></div>
+                </div>
+            </div>
+            <button onclick="download()" id="download_button" style="margin-top:-70px; float: right; cursor: pointer; height: 50px; width: 200px; font-family: Roboto; background-color: green; border-radius: 5px; border: 0px solid; font-family: Roboto; font-weight: bold; color: white; font-size: 20px;"><img src="./pics/herunterladen.svg" style="display: inline-block; height: 25px; margin-top: -10px;"><section style="display: inline-block;font-family: Roboto; font-weight: bold; color: white; font-size: 20px; padding-left: 10px; padding-top: 0px;">Download</section></button>
+        </div>
+<!-- 
+    <div id="Settings_header" style="width: 100%;">A320 Seatplans</div>
+    <div id="content">  
+    <div id="Box" style=" background-color: rgb(51, 47, 47); width: 240px; margin-top: 10px;">
+        <img src="http://localhost:90/static/pics/b747.png" style="height: 120px; margin-left: 60px; margin-top: 20px;">
+        <div id="sub" style="text-align: center; padding-bottom: 10px; padding-top: 5px;">Lufthansa 747</div>
+        <div id="author">by Bendix</div>
+    </div> -->
+</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+{
+  "name": "launcher",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "custom-electron-titlebar": "^3.2.5",
+    "express": "^4.17.1",
+    "extract-zip": "^2.0.1",
+    "node-fetch": "^2.6.1",
+    "unzipper": "^0.10.11"
+  },
+  "devDependencies": {
+    "electron": "^11.2.0"
+  },
+  "build": {
+    "appId": "com.airtool.launcher",
+    "compression": "maximum",
+    "extends": null
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pack": "electron-builder --dir=E:\\Tools\\Launcher"
+  },
+  "author": "",
+  "license": "ISC"
+}
