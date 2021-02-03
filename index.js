@@ -35,7 +35,7 @@ function createWindow () {
   }catch(err){
   fs.writeFileSync('./config.json','{"storein":"C:/Program Files (x86)"}')
   }
-  win.webContents.openDevTools()
+ // win.webContents.openDevTools()
 }
 
 app1.use('/static', express.static(__dirname + '/html'));
