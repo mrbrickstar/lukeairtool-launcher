@@ -1,0 +1,33 @@
+
+<head>
+</head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script>
+    async function onload(){
+
+        
+        require('dns').resolve('www.google.com', function(err) {
+    if (err) {
+        var fs = require("fs")
+        var site = fs.readFileSync("./html/nointernet.html", "UTF-8")
+    //  return win.loadFile('./html/nointernet.html')
+      return document.getElementById("content").innerHTML = site
+    }
+  });
+
+$.ajax({
+    url: "https://lukeairtool.net/LAT/seat12.html", 
+    context: document.body,
+    success: function(response) {
+        $("#content").html(response);
+    }
+});
+    }
+        </script> 
+    <body onload="onload()">
+        <div id="content"></div>
+
+        </div>
+
+
+    </body>

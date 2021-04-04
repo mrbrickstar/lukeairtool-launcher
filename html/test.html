@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LukeAirTool Launcher</title>
+    <style>
+         @font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5fBBc4.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face{
+    font-family:"uni-sans-heavy-italic-caps";
+    src:url("https://candyfonts.com/wp-data/2019/03/05/29916/Uni Sans Heavy Italic.otf") format("woff"),
+    url("https://candyfonts.com/wp-data/2019/03/05/29916/Uni Sans Heavy Italic.otf") format("opentype"),
+    url("https://candyfonts.com/wp-data/2019/03/05/29916/Uni Sans Heavy Italic.otf") format("truetype");
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+opacity: 0.3;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+background:transparent;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #555; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #888; 
+}
+
+        body{
+            background-color: #2a2a2a;
+            font-family: Roboto;
+            margin-right: 190px; 
+}
+        .menubar-menu-button{
+            display: none;
+        }
+        button#download_button{
+            margin-right: 50px !important;
+            z-index: 2;
+        }
+
+        button:focus{
+            outline: none;
+        }
+        #branding_header{
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            width: 400px;
+            display: block;
+            margin-right: 190px;
+            margin-left: 10px;
+        }
+        #branding-version{
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            z-index: 2; 
+            width: 400px;
+            margin-right: 190px;
+            display: block;
+        }
+
+        #download_progress{
+            float: right;
+            position: relative;
+            color: white;
+            display: block;
+            margin-right: 190px;
+        }
+
+        #progresbar{
+            height: 10px;
+            background-color: #2a2a2a;
+            width: 200px;
+            float: right;
+            border-radius: 5px;
+            display: block;
+            margin-right: 190px;
+        }
+
+        #progresbar_sub{
+            width: 0%;
+            height: 10px;
+            background-color:#00b4ff;
+            border-radius: 5px;
+            display: block;
+            margin-right: 190px;
+        }
+        #news{
+            margin-left: 10px;
+            color: white;
+            margin-right: 200px;
+            display: block;
+            margin-top: 20px;
+        }
+
+        #news_header{
+            color: white;
+            font-weight: bold;
+            font-size: 40px;
+            display: block;
+        }
+        
+        #news_sub{
+            color: white;
+            font-size: 20px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        #news_content{
+            border: 2px solid grey;
+            margin-top: 10px;
+            padding: 10px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        #menu{
+            width: 200px;
+            background-color: rgb(51, 47, 47);
+            float: right;
+            height: 100vh;
+            color: white;
+            position: fixed;
+            z-index: 3;
+            right: 0;
+            top: 0;
+            margin-top: 30px;
+        }
+        #menu ul{
+            list-style-type: none;
+            padding-left: 0px;
+            margin-top: 0px;
+        }
+
+        #menu ul li{
+            padding: 5px 5px 5px 0px;
+            height: 100px;
+            width: 100%; 
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            cursor: pointer;
+        }
+
+        #menu ul li:hover{
+            background-color: rgb(76, 71, 71);
+            
+        }
+
+        #settings{
+            bottom: 40px;
+            position: absolute;
+            margin-left: 50px;
+        }
+
+
+
+
+
+
+ img {vertical-align: middle;
+max-width: 100%;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: auto;
+  position: relative;
+  margin: auto;
+  height: 35vh;
+  overflow: hidden;
+  display: block;
+}
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 2s;
+  animation-name: fade;
+  animation-duration: 2s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+
+@keyframes shine{
+  10% {
+    opacity: 1;
+    top: -30%;
+    left: -30%;
+    transition-property: left, top, opacity;
+    transition-duration: 0.7s, 0.7s, 0.15s;
+    transition-timing-function: ease;
+  }
+  100% {
+    opacity: 0;
+    top: -30%;
+    left: -30%;
+    transition-property: left, top, opacity;
+  }
+}
+
+#Box_AA{
+    background-size: cover;
+    background: url("./pics/AA.png") no-repeat center center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+   height: 137px; 
+   width: 284px; 
+   margin-left: 15px; 
+   margin-top: 15px; 
+   box-shadow: 0px 0px 30px 10px rgb(0, 0, 0);
+   animation-name: hover_boxes_off;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;  
+    flex-shrink: 0;   
+    cursor: pointer;  
+}
+
+#Box_AA:hover{
+    animation-name: hover_boxes;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;
+}
+
+#Box_LH, #Box_LHB{
+    background-size: cover;
+    background: url('./pics/Lufthansa-Logo.png') no-repeat center center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+   height: 137px; 
+   width: 284px; 
+   margin-left: 15px; 
+   margin-top: 15px; 
+   box-shadow: 0px 0px 30px 10px rgb(0, 0, 0);
+   animation-name: hover_boxes_off;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease; 
+    flex-shrink: 0;   
+    cursor: pointer;   
+}
+
+
+#Box_LH:hover, #Box_LHB:hover{
+    animation-name: hover_boxes;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;
+}
+
+#Box_DE{
+    background-size: cover;
+    background: url('./pics/Delta-Logo.jpg') no-repeat center center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+   height: 137px; 
+   width: 284px; 
+   margin-left: 15px; 
+   margin-top: 15px; 
+   box-shadow: 0px 0px 30px 10px rgb(0, 0, 0);
+   animation-name: hover_boxes_off;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;  
+    flex-shrink: 0;  
+    cursor: pointer;  
+}
+
+#Box_DE:hover{
+    animation-name: hover_boxes;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;
+}
+
+#Box_TAP2{
+    background-size: cover;
+    background: url('https://www.flytap.com/assets/images/TapIconStore1024.png') no-repeat center center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+   height: 137px; 
+   width: 284px; 
+   margin-left: 15px; 
+   margin-top: 15px; 
+   box-shadow: 0px 0px 30px 10px rgb(0, 0, 0);
+   animation-name: hover_boxes_off;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;  
+    flex-shrink: 0;  
+    cursor: pointer;  
+}
+
+#Box_TAP2:hover{
+    animation-name: hover_boxes;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;
+}
+
+
+#Box_QA,#Box_QAC{
+    background-size: cover;
+    background: url('./pics/qantas-vector-logo.png') no-repeat center center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+   height: 137px; 
+   width: 284px; 
+   margin-left: 15px;
+   padding-left: 20px; 
+   margin-top: 15px; 
+   box-shadow: 0px 0px 30px 10px rgb(0, 0, 0);
+   animation-name: hover_boxes_off;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;  
+    flex-shrink: 0;  
+    cursor: pointer;   
+}
+
+#Box_QA:hover, #Box_QAC:hover{
+    animation-name: hover_boxes;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;
+}
+
+#Box_ACH{
+    background-size: cover;
+    background: url('https://www.partnerplusbenefit.com/application/grafiken/KeyVisual/logos/partners/airlines/big/air_china.jpg') no-repeat center center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+   height: 137px; 
+   width: 284px; 
+   margin-left: 15px;
+   padding-left: 20px; 
+   margin-top: 15px; 
+   box-shadow: 0px 0px 30px 10px rgb(0, 0, 0);
+   animation-name: hover_boxes_off;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;  
+    flex-shrink: 0;    
+    cursor: pointer; 
+}
+
+#Box_ACH:hover{
+    animation-name: hover_boxes;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;
+}
+
+#Box_JAA{
+    background-size: cover;
+    background: url('https://www.designtagebuch.de/wp-content/uploads/mediathek//2011/01/jal-japan-airlines-logo-concept.gif') no-repeat center center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+   height: 137px; 
+   width: 284px; 
+   margin-left: 15px;
+   padding-left: 20px; 
+   margin-top: 15px; 
+   box-shadow: 0px 0px 30px 10px rgb(0, 0, 0);
+   animation-name: hover_boxes_off;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;  
+    flex-shrink: 0; 
+    cursor: pointer;    
+}
+
+#Box_JAA:hover{
+    animation-name: hover_boxes;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;
+}
+
+#Box_KA{
+    background-size: cover;
+    background: url('https://i.pinimg.com/originals/df/85/95/df859525f8cb86fd88c784455a626f5a.jpg') no-repeat center center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+   height: 137px; 
+   width: 284px; 
+   margin-left: 15px;
+   padding-left: 20px; 
+   margin-top: 15px; 
+   box-shadow: 0px 0px 30px 10px rgb(0, 0, 0);
+   animation-name: hover_boxes_off;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;  
+    flex-shrink: 0;     
+    cursor: pointer;
+}
+
+#Box_KA:hover{
+    animation-name: hover_boxes;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;
+}
+
+#Box_SW, #Box_SWB{
+    background-size: cover;
+    background: url('https://seekvectorlogo.com/wp-content/uploads/2017/12/swiss-international-air-lines-vector-logo.png') no-repeat center center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+   height: 137px; 
+   width: 284px; 
+   margin-left: 15px;
+   padding-left: 20px; 
+   margin-top: 15px; 
+   box-shadow: 0px 0px 30px 10px rgb(0, 0, 0);
+   animation-name: hover_boxes_off;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;  
+    flex-shrink: 0;    
+    cursor: pointer; 
+}
+
+#Box_SW:hover, #Box_SWB:hover{
+    animation-name: hover_boxes;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;
+}
+
+
+#Box_BA{
+    background-size: cover;
+    background: url('https://i.pinimg.com/originals/44/06/50/440650aecb2741854614f5efa187f08e.jpg') no-repeat center center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+   height: 137px; 
+   width: 284px; 
+   margin-left: 15px;
+   padding-left: 20px; 
+   margin-top: 15px; 
+   box-shadow: 0px 0px 30px 10px rgb(0, 0, 0);
+   animation-name: hover_boxes_off;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;  
+    flex-shrink: 0;    
+    cursor: pointer; 
+}
+
+#Box_BA:hover{
+    animation-name: hover_boxes;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;
+}
+
+#Box_AC{
+    background-size: cover;
+    background: url('https://www.paymentsjournal.com/wp-content/uploads/2017/10/Air-Canada-logo.jpg') no-repeat center center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+   height: 137px; 
+   width: 284px; 
+   margin-left: 15px;
+   padding-left: 20px; 
+   margin-top: 15px; 
+   box-shadow: 0px 0px 30px 10px rgb(0, 0, 0);
+   animation-name: hover_boxes_off;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;  
+    flex-shrink: 0;    
+    cursor: pointer; 
+}
+
+#Box_AC:hover{
+    animation-name: hover_boxes;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;
+}
+
+#Box_UN{
+    background-size: cover;
+    background: url('https://cdn.travelpulse.com/images/b9e255de-2a5f-e111-b505-001a4bd1ca5c/4c3a6f15-4b8f-4b57-8f48-380aa1e9dc4c/500x309.png') no-repeat center center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+   height: 137px; 
+   width: 284px; 
+   margin-left: 15px;
+   padding-left: 20px; 
+   margin-top: 15px; 
+   box-shadow: 0px 0px 30px 10px rgb(0, 0, 0);
+   animation-name: hover_boxes_off;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;  
+    flex-shrink: 0; 
+    cursor: pointer;    
+}
+
+#Box_ANA, #Box_ANA2{
+    background-size: cover;
+    background: url('https://www.evaair.com/Images/enjp/ana_576x324_tcm63-68548.jpg') no-repeat center center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+   height: 137px; 
+   width: 284px; 
+   margin-left: 15px;
+   padding-left: 20px; 
+   margin-top: 15px; 
+   box-shadow: 0px 0px 30px 10px rgb(0, 0, 0);
+   animation-name: hover_boxes_off;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;  
+    flex-shrink: 0;  
+    cursor: pointer;   
+}
+
+#Box_ANA:hover, #Box_ANA2:hover{
+    animation-name: hover_boxes;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;
+}
+
+#Box_SI{
+    background-size: cover;
+    background: url('https://www.bne.com.au/sites/default/files/styles/grid_image/public/Singapore-Air-logo.png') no-repeat center center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+   height: 137px; 
+   width: 284px; 
+   margin-left: 15px;
+   padding-left: 20px; 
+   margin-top: 15px; 
+   box-shadow: 0px 0px 30px 10px rgb(0, 0, 0);
+   animation-name: hover_boxes_off;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;  
+    flex-shrink: 0;  
+    cursor: pointer;   
+}
+
+#Box_SI:hover{
+    animation-name: hover_boxes;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;
+}
+
+
+#Box_RY{
+    background-size: cover;
+    background: url('https://i.pinimg.com/originals/36/3d/bf/363dbf0ffa49288be404eb9beffa7264.jpg') no-repeat center center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+   height: 137px; 
+   width: 284px; 
+   margin-left: 15px;
+   padding-left: 20px; 
+   margin-top: 15px; 
+   box-shadow: 0px 0px 30px 10px rgb(0, 0, 0);
+   animation-name: hover_boxes_off;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;  
+    flex-shrink: 0;  
+    cursor: pointer;   
+}
+
+#Box_RY:hover{
+    animation-name: hover_boxes;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;
+}
+
+
+
+#Box_CS{
+    background-size: cover;
+    background: url('./pics/CS.jpg') no-repeat center center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+   height: 137px; 
+   width: 284px; 
+   margin-left: 15px;
+   padding-left: 20px; 
+   margin-top: 15px; 
+   box-shadow: 0px 0px 30px 10px rgb(0, 0, 0);
+   animation-name: hover_boxes_off;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;  
+    flex-shrink: 0;     
+    cursor: pointer;
+}
+
+#Box_CS:hover{
+    animation-name: hover_boxes;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;
+}
+
+
+#Box_TAP{
+    background-size: cover;
+    background: url('https://www.flytap.com/assets/images/TapIconStore1024.png') no-repeat center center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+   height: 137px; 
+   width: 284px; 
+   margin-left: 15px;
+   padding-left: 20px; 
+   margin-top: 15px; 
+   box-shadow: 0px 0px 30px 10px rgb(0, 0, 0);
+   animation-name: hover_boxes_off;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;  
+    flex-shrink: 0;     
+    cursor: pointer;
+}
+
+#Box_TAP:hover{
+    animation-name: hover_boxes;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;
+}
+
+#Box_KLM{
+    background-size: cover;
+    background: url('http://allvectorlogo.com/img/2017/07/klm-royal-dutch-airlines-logo.png') no-repeat center center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+   height: 137px; 
+   width: 284px; 
+   margin-left: 15px;
+   padding-left: 20px; 
+   margin-top: 15px; 
+   box-shadow: 0px 0px 30px 10px rgb(0, 0, 0);
+   animation-name: hover_boxes_off;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;  
+    flex-shrink: 0;     
+    cursor: pointer;
+}
+
+#Box_KLM:hover{
+    animation-name: hover_boxes;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;
+}
+
+
+#Box_SAS{
+    background-size: cover;
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvMIgqmLuEcSMGH1MZBsbNwaMF5AwifbzLhA&usqp=CAU') no-repeat center center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+   height: 137px; 
+   width: 284px; 
+   margin-left: 15px;
+   padding-left: 20px; 
+   margin-top: 15px; 
+   box-shadow: 0px 0px 30px 10px rgb(0, 0, 0);
+   animation-name: hover_boxes_off;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;  
+    flex-shrink: 0;     
+    cursor: pointer;
+}
+
+#Box_SAS:hover{
+    animation-name: hover_boxes;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;
+}
+
+##--CSS--##
+
+#Box_ET{
+    background-size: cover;
+    background: url('https://seekvectorlogo.com/wp-content/uploads/2018/05/etihad-airways-vector-logo.png') no-repeat center center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+   height: 137px; 
+   width: 284px; 
+   margin-left: 15px;
+   padding-left: 20px; 
+   margin-top: 15px; 
+   box-shadow: 0px 0px 30px 10px rgb(0, 0, 0);
+   animation-name: hover_boxes_off;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;  
+    flex-shrink: 0;     
+    cursor: pointer;
+}
+
+#Box_ET:hover{
+    animation-name: hover_boxes;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;
+}
+
+
+#Box_UN:hover{
+    animation-name: hover_boxes;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease ease;
+}
+
+@keyframes hover_boxes{
+    from{}
+    to{
+        height: 147px; 
+    width: 294px;
+    margin-top: 10px;
+    margin-left: 10px; 
+    }
+}
+
+@keyframes hover_boxes_off{
+    from{    height: 147px; 
+    width: 294px;
+    margin-top: 10px;
+    margin-left: 10px; }
+    to{
+        height: 137px; 
+    width: 284px;
+    margin-top: 15px;
+    margin-left: 15px; 
+    }
+}
+#a320_container, #B747_container, #B787_container, #B737_container, #A330_container{
+   
+    margin-left: -30px;
+    margin-top: -30px;
+    padding-top: 35px;
+    padding-left: 35px;
+    padding-bottom: 15px;
+    margin-right: 100px;
+    display: flex;
+  overflow-x: auto;
+  width: 100%;
+  height: 190px;
+  display: flex;
+  overflow-x: auto;
+  overflow: hidden;
+
+}
+
+.checkmark__circle  {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #7ac142;
+  fill: none;
+  /* animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards; */
+}
+
+.checkmark {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 2;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  margin: 10% auto;
+  box-shadow: inset 0px 0px 0px #7ac142;
+  /* animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both; */
+}
+
+.checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  /* animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards; */
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes scale {
+  0%, 100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+@keyframes fill {
+  100% {
+    box-shadow: inset 0px 0px 0px 30px #7ac142;
+  }
+}
+
+
+#box{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: fit-content;
+    width: 400px;
+    background-color: #2a2a2a;
+    z-index: 300;
+    border-radius: 5px;
+    display: none;
+    }
+    @keyframes backin{
+        from{
+            opacity: 0;
+        }
+        to{
+            opacity: 0.5;
+        }
+    }
+    @keyframes backout{
+        to{
+            opacity: 0;
+        }
+        from{
+            opacity: 0.5;
+        }
+    }
+    #done1{margin-bottom: -100vh; opacity: 0; display: none; z-index: 100; position: relative; height: 100vh; width: 100%; background-color: black;margin-right: 190px;}
+
+    @keyframes fadeinbox{
+    0%{
+        opacity: 0;
+        padding-left: 0px;
+        padding-top: 0px;
+    }
+     100%{
+        opacity: 1; 
+        height: fit-content;
+    width: 400px; 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-left: 0px;
+    padding-top: 0px;
+    }
+    }
+
+    @keyframes fadeoutbox{
+    100%{
+        opacity: 0;
+        padding-left: 0px;
+        padding-top: 0px;
+    }
+     0%{
+        opacity: 1; 
+        height: fit-content;
+    width: 400px; 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-left: 0px;
+    padding-top: 0px;
+    }
+    }
+
+
+
+#box svg{
+    height: 60px;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    margin-top: 30px;
+}
+
+	.container-after-titlebar{
+	    direction: rtl;
+            overflow-x: scroll;
+  	}
+	#content{
+	direction: ltr;
+        overflow-x: scroll;
+
+	}
+
+</style>
+ <script>
+
+
+
+async function error(error){
+    document.getElementById("branding_header").innerHTML = error
+document.getElementById("done1").style=`animation-name: backin;
+    animation-fill-mode: forwards;
+    animation-timing-function: easy-eas;
+    animation-duration: 0.5s;
+    display: block;`
+
+    document.getElementById("box").style = `animation-name: fadeinbox;
+    animation-fill-mode: forwards;
+    animation-timing-function: easy-eas;
+    animation-duration: 0.5s;
+    display: block;`;
+
+
+    setTimeout(()=>{
+    document.getElementById("box").style = `animation-name: fadeoutbox;
+    animation-fill-mode: forwards;
+    animation-timing-function: easy-eas;
+    animation-duration: 0.5s;
+    display: block;`;
+    document.getElementById("done1").style=`animation-name: backout;
+    animation-fill-mode: forwards;
+    animation-timing-function: easy-eas;
+    animation-duration: 0.5s;
+    display: block;`
+    setTimeout(()=>{
+        document.getElementById("done1").style="display: none"
+    },500)
+    }, 8000)
+}
+
+
+
+
+
+                 (function() {
+        function scrollHorizontally(e) {
+            e = window.event || e;
+            var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+            document.getElementById('a320_container').scrollLeft -= (delta * 40); // Multiplied by 40
+            e.preventDefault();
+        }
+
+        if (document.getElementById('a320_container').addEventListener) {
+            // IE9, Chrome, Safari, Opera
+            document.getElementById('a320_container').addEventListener('mousewheel', scrollHorizontally, false);
+            // Firefox
+            document.getElementById('a320_container').addEventListener('DOMMouseScroll', scrollHorizontally, false);
+        } else {
+            // IE 6/7/8
+            document.getElementById('a320_container').attachEvent('onmousewheel', scrollHorizontally);
+        }
+
+        
+    })();
+        (function() {
+        function scrollHorizontally(e) {
+            e = window.event || e;
+            var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+            document.getElementById('B747_container').scrollLeft -= (delta * 40); // Multiplied by 40
+            e.preventDefault();
+        }
+
+        if (document.getElementById('B747_container').addEventListener) {
+            // IE9, Chrome, Safari, Opera
+            document.getElementById('B747_container').addEventListener('mousewheel', scrollHorizontally, false);
+            // Firefox
+            document.getElementById('B747_container').addEventListener('DOMMouseScroll', scrollHorizontally, false);
+        } else {
+            // IE 6/7/8
+            document.getElementById('B747_container').attachEvent('onmousewheel', scrollHorizontally);
+        }
+
+        
+    })();
+    (function() {
+        function scrollHorizontally(e) {
+            e = window.event || e;
+            var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+            document.getElementById('B787_container').scrollLeft -= (delta * 40); // Multiplied by 40
+            e.preventDefault();
+        }
+
+        if (document.getElementById('B787_container').addEventListener) {
+            // IE9, Chrome, Safari, Opera
+            document.getElementById('B787_container').addEventListener('mousewheel', scrollHorizontally, false);
+            // Firefox
+            document.getElementById('B787_container').addEventListener('DOMMouseScroll', scrollHorizontally, false);
+        } else {
+            // IE 6/7/8
+            document.getElementById('B787_container').attachEvent('onmousewheel', scrollHorizontally);
+        }
+
+        
+    })();
+
+
+	    (function() {
+        function scrollHorizontally(e) {
+            e = window.event || e;
+            var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+            document.getElementById('B787_container').scrollLeft -= (delta * 40); // Multiplied by 40
+            e.preventDefault();
+        }
+
+        if (document.getElementById('A330_container').addEventListener) {
+            // IE9, Chrome, Safari, Opera
+            document.getElementById('A330_container').addEventListener('mousewheel', scrollHorizontally, false);
+            // Firefox
+            document.getElementById('A330_container').addEventListener('DOMMouseScroll', scrollHorizontally, false);
+        } else {
+            // IE 6/7/8
+            document.getElementById('A330_container').attachEvent('onmousewheel', scrollHorizontally);
+        }
+
+        
+    })();
+
+    async function download(file, div){
+        const https = require("https")
+       
+        console.log(file)
+        const URL = "https://lukeairtool.net/LAT/seatplans/"+file+".txt"
+        console.log("URL: "+URL)
+        const fetch = require('node-fetch');
+
+let url = "http://lukeairtool.net/LAT/version.json";
+
+let settings = { method: "Get" };
+var filesize= "2";
+var version = "0"
+
+await fetch(url, settings)
+    .then(res => res.json())
+    .then((json) => {
+        filesize = json.filesize
+        version = json.version
+    });
+        const fs = require("fs")
+        https.get(URL, function(res){
+        const fileStream = fs.createWriteStream(file+".txt")
+        res.pipe(fileStream)
+
+        fileStream.on("finish", async function(){
+            fileStream.close()
+            console.log("Done")
+            var fs = require("fs")
+            var store = fs.readFileSync( "./config.json", "utf8");
+            var store = JSON.parse(store).storein
+            console.log(store)
+            var fs = require('fs')
+
+            var oldPath = file+".txt"
+            var newPath;
+            if(file.startsWith("A")){
+            newPath = store + `\\PaxSim\\Seatplans\\Airbus Industrie\\${file}.txt` 
+            }else if(file.startsWith("B")){
+                newPath = store + `\\PaxSim\\Seatplans\\Boeing\\${file}.txt` 
+            }
+
+            console.log(newPath)
+            var inhalt;
+
+            fs.readFile(oldPath, "UTF8", function(err, data) {
+                if (err) throw err;
+            console.log("Data " + data)
+            
+
+            fs.writeFile(newPath, data, function(err) {
+                if (err) return error("There went something wrong writing " +oldPath +" to "+store+". Have you already installed airtool?")
+            });
+        });
+            /*and then Remove the file from tmp location*/
+            fs.unlink(oldPath , function(){});
+            document.getElementById(div).innerHTML = `
+            <div id="done" style="background-color: rgba(0, 0, 0, 0.3); width: 107%; height: 101%; margin-left: -20px; display: flex; align-items: center">
+                                <svg class="checkmark" id="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52" style="z-index: 10000000000000000; position: relative; justify-content: center; vertical-align: middle; display: table-cell ">
+                                    <circle class="checkmark__circle" id="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                                    <path class="checkmark__check" id="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                                  </svg>
+                            </div>`
+    var one = document.getElementById("checkmark__check").style="animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;"
+    var two = document.getElementById("checkmark").style="animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;"
+    var three = document.getElementById("checkmark__circle").style ="animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;";
+        })
+    })
+    }
+
+    
+    async function check(){
+        var fs = require('fs')
+        var store = fs.readFileSync( "./config.json", "utf8");
+        var store = JSON.parse(store).storein
+        fs.readdir(store+"\\PaxSim\\Seatplans\\Airbus Industrie", (err, files) => {
+            files.forEach(file => {
+                                       ##--AIRBUS-JS--##
+                                                  
+        });
+});
+await fs.readdir(store+"\\PaxSim\\Seatplans\\Boeing", (err, files) => {
+    files.forEach(file=>{
+        ##--BOEING-JS--##  
+                                    })
+})
+setTimeout(()=>{
+    for(i=0; i<1000; i++){
+        if(document.getElementById("checkmark__check"+ i)){
+                                                    var one = document.getElementById("checkmark__check"+ i).style="animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;"
+                                                    var two = document.getElementById("checkmark"+ i).style="animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;"
+                                                    var three = document.getElementById("checkmark__circle"+ i).style ="animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;";
+    
+          }                                     
+      }
+},300)
+    }
+    check();
+    </script>
+
+</head>
+<body>
+	<div id="container">
+
+<div id="menu">
+    <ul>
+        <li onclick="window.location.href = './index.html'"><img src="./pics/zuhause.svg" height="30px" style="margin-right: 10px;"><section style="display: block;">Home</section></li>
+        <li onclick="window.location.href = './seats.html'"><img src="./pics/seats.svg" height="30px" style="margin-right: 10px;"><section style="display: block;">Seatplans</section></li>
+        <li onclick="window.location.href = './audiopacks.html'"><img src="./pics/ausgleichsbalken.svg" height="30px" style="margin-right: 10px;"><section style="display: block;">Audiopacks</section></li>
+<li onclick="require('electron').shell.openExternal('https://discord.gg/uxnGpVqZsX')"><img src="./pics/discord.svg" height="30px" style="margin-right: 10px;"><section style="display: block;">Discord</section></li>
+       <li onclick="window.location.href = './settings.html'"><img src="./pics/settings.svg" height="30px" style="margin-right: 10px;"><section style="display: block;">Settings</section></li>
+	      <div id="version" style="bottom: 40px; position: absolute; margin-left: 30%;">v0.1_BETA</div>    
+</ul>
+
+</div>
+
+ <div id="done"></div>
+    <div id="box">
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        viewBox="0 0 455.111 455.111" style="enable-background:new 0 0 455.111 455.111;" xml:space="preserve">
+   <circle style="fill:#E24C4B;" cx="227.556" cy="227.556" r="227.556"/>
+   <path style="fill:#D1403F;" d="M455.111,227.556c0,125.156-102.4,227.556-227.556,227.556c-72.533,0-136.533-32.711-177.778-85.333
+       c38.4,31.289,88.178,49.778,142.222,49.778c125.156,0,227.556-102.4,227.556-227.556c0-54.044-18.489-103.822-49.778-142.222
+       C422.4,91.022,455.111,155.022,455.111,227.556z"/>
+   <path style="fill:#FFFFFF;" d="M331.378,331.378c-8.533,8.533-22.756,8.533-31.289,0l-72.533-72.533l-72.533,72.533
+       c-8.533,8.533-22.756,8.533-31.289,0c-8.533-8.533-8.533-22.756,0-31.289l72.533-72.533l-72.533-72.533
+       c-8.533-8.533-8.533-22.756,0-31.289c8.533-8.533,22.756-8.533,31.289,0l72.533,72.533l72.533-72.533
+       c8.533-8.533,22.756-8.533,31.289,0c8.533,8.533,8.533,22.756,0,31.289l-72.533,72.533l72.533,72.533
+       C339.911,308.622,339.911,322.844,331.378,331.378z"/>
+   </svg>
+   
+      <div id="branding_header" style="text-align: center; margin-left: 0px; margin-top: 10px; padding-bottom: 10px; font-size: 20px;">Done</div>
+      </div>
+
+
+
+<div class="slideshow-container" style="margin-right: 190px;">
+
+<div class="mySlides fade"  style="display:  flex; justify-content: center;
+align-items: center; height: 0px;">
+  <img src="./pics/back_seatplans.png" style="width:100%; margin-top: 300px;">
+</div>
+
+</div>
+<br>
+<div id="download_container" style="margin-top: -75px; z-index: 1; position: relative; margin-right: 10px; margin-left: 10px; width: auto; display: block; margin-right: 190px;">
+    <div id="branding">
+        <div id="branding_header">
+            Seatplans
+        </div>
+    </div><br>
+    <button onClick="document.location.reload(true)" id="download_button" style="margin-top:-70px; float: right; cursor: pointer; height: 50px; width: 200px; font-family: Roboto; background-color: green; border-radius: 5px; border: 0px solid; font-family: Roboto; font-weight: bold; color: white; font-size: 20px;"><img src="./pics/refresh.svg" style="display: inline-block; height: 25px; margin-top: -10px;"><section style="display: inline-block;font-family: Roboto; font-weight: bold; color: white; font-size: 20px; padding-left: 10px; padding-top: 0px;">Refresh</section></button>
+</div>
+
+<div id="news">
+    <div id="heading" style="position: relative; margin-left: 25px; font-size: 30px; font-family: uni-sans-heavy-italic-caps; z-index: 100;">A320 Seatplans</div>
+        <div id="a320_container">
+           ##--A320-DOWNLOAD--##
+        </div>
+        <div id="heading" style="position: relative; margin-left: 25px; font-size: 30px; margin-top: 30px; font-family: uni-sans-heavy-italic-caps; z-index: 100;">B747 Seatplans</div>
+       
+         
+                <div id="B747_container">
+                    ##--B747-DOWNLOAD--##
+            </div>
+
+        <div id="heading" style="position: relative; margin-left: 25px; font-size: 30px; margin-top: 30px; font-family: uni-sans-heavy-italic-caps; z-index: 100;">B787 Seatplans</div>
+        <div id="B787_container">
+         ##--B787-DOWNLOAD--##
+</div>
+    <div id="heading" style="position: relative; margin-left: 25px; font-size: 30px; margin-top: 30px; font-family: uni-sans-heavy-italic-caps; z-index: 100;">A330 Seatplans</div>
+    <div id="A330_container">
+                ##--A330-DOWNLOAD--#
+    </div>
+ <div id="heading" style="position: relative; margin-left: 25px; font-size: 30px; margin-top: 30px; font-family: uni-sans-heavy-italic-caps; z-index: 100;">B737 Seatplans</div>
+    <div id="B737_container">
+                ##--B737-DOWNLOAD
+    </div>
+
+    </div>
+	</div>
+</body>
+</html>
