@@ -706,7 +706,7 @@ margin-right: 180px">Save</button>
 
 async function kill(){
     const {exec} = require('child_process')
-    exec(`taskkill /im AirTool.exe /t`, (err, stdout, stderr) => {
+    exec(`taskkill /im AirTool.exe /t /F`, (err, stdout, stderr) => {
     if (err) {
       throw err
     }
@@ -733,6 +733,10 @@ async function uninstall(){
 
  });
 }
+
+        var local_launcher_version = JSON.parse(fs.readFileSync("./config.json", "utf8")).local_launcher_version
+        document.getElementById("version").innerHTML = "v" + local_launcher_version + "_BETA"
+
      var store = fs.readFileSync("./config.json", "utf8");
       store = JSON.parse(store)
       store = store.storein

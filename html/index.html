@@ -1,69 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LukeAirTool Launcher</title>
     <style>
-         @font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5fBBc4.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 300;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5fBBc4.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
 
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
+        /* width */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: #2a2a2a; 
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #555; 
-}
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #2a2a2a;
+        }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #888; 
-}
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #555;
+        }
 
-iframe::-webkit-scrollbar {
-  width: 1000000000px;
-}
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #888;
+        }
 
-        body{
+        iframe::-webkit-scrollbar {
+            width: 1000000000px;
+        }
+
+        body {
             background-color: #2a2a2a;
             font-family: Roboto;
             margin-right: 190px;
         }
-        .menubar-menu-button{
+
+        .menubar-menu-button {
             display: none;
         }
-        button#download_button{
+
+        button#download_button {
             margin-right: 50px !important;
             z-index: 2;
             transition: 0.1s;
         }
 
-        button#download_button:active{
+        button#download_button:active {
             width: 180px !important;
             height: 45px !important;
             font-size: 15px !important;
-            margin-right:60px !important;
+            margin-right: 60px !important;
             margin-top: -68px !important;
         }
 
-        button:focus{
+        button:focus {
             outline: none;
         }
-        #branding_header{
+
+        #branding_header {
             color: white;
             font-size: 40px;
             font-weight: bold;
@@ -71,17 +75,18 @@ iframe::-webkit-scrollbar {
             display: block;
             margin-right: 190px;
         }
-        #branding-version{
+
+        #branding-version {
             color: white;
             font-size: 20px;
             font-weight: bold;
-            z-index: 2; 
+            z-index: 2;
             width: 400px;
             margin-right: 190px;
             display: block;
         }
 
-        #download_progress{
+        #download_progress {
             float: right;
             position: relative;
             color: white;
@@ -89,7 +94,7 @@ iframe::-webkit-scrollbar {
             margin-right: 190px;
         }
 
-        #progresbar{
+        #progresbar {
             height: 10px;
             background-color: #2a2a2a;
             width: 200px;
@@ -99,15 +104,16 @@ iframe::-webkit-scrollbar {
             margin-right: 190px;
         }
 
-        #progresbar_sub{
+        #progresbar_sub {
             width: 0%;
             height: 10px;
-            background-color:#00b4ff;
+            background-color: #00b4ff;
             border-radius: 5px;
             display: block;
             margin-right: 190px;
         }
-        #news{
+
+        #news {
             margin-left: 10px;
             color: white;
             margin-right: 200px;
@@ -115,21 +121,21 @@ iframe::-webkit-scrollbar {
             margin-top: 20px;
         }
 
-        #news_header{
+        #news_header {
             color: white;
             font-weight: bold;
             font-size: 40px;
             display: block;
         }
-        
-        #news_sub{
+
+        #news_sub {
             color: white;
             font-size: 20px;
             margin-bottom: 10px;
             display: block;
         }
-        
-        #news_content iframe{
+
+        #news_content iframe {
             margin-top: 10px;
             padding: 10px;
             margin-bottom: 5px;
@@ -138,7 +144,7 @@ iframe::-webkit-scrollbar {
             scrollbar-width: none;
         }
 
-        #menu{
+        #menu {
             width: 200px;
             background-color: rgb(51, 47, 47);
             float: right;
@@ -150,28 +156,29 @@ iframe::-webkit-scrollbar {
             top: 0;
             margin-top: 30px;
         }
-        #menu ul{
+
+        #menu ul {
             list-style-type: none;
             padding-left: 0px;
             margin-top: 0px;
         }
 
-        #menu ul li{
+        #menu ul li {
             padding: 5px 5px 5px 0px;
             height: 100px;
-            width: 100%; 
+            width: 100%;
             justify-content: center;
             align-items: center;
             display: flex;
             cursor: pointer;
         }
 
-        #menu ul li:hover{
+        #menu ul li:hover {
             background-color: rgb(76, 71, 71);
-            
+
         }
 
-        #settings{
+        #settings {
             bottom: 40px;
             position: absolute;
             margin-left: 50px;
@@ -180,580 +187,714 @@ iframe::-webkit-scrollbar {
 
 
 
-#box svg{
-    height: 60px;
-    margin-right: auto;
-    margin-left: auto;
-    display: block;
-    margin-top: 30px;
-}
+        #box svg {
+            height: 60px;
+            margin-right: auto;
+            margin-left: auto;
+            display: block;
+            margin-top: 30px;
+        }
 
-@keyframes stroke {
-  100% {
-    stroke-dashoffset: 0;
-  }
-}
-@keyframes scale {
-  0%, 100% {
-    transform: none;
-  }
-  50% {
-    transform: scale3d(1.1, 1.1, 1);
-  }
-}
-@keyframes fill {
-  100% {
-    box-shadow: inset 0px 0px 0px 30px #7ac142;
-  }
-}
+        @keyframes stroke {
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
 
- img {vertical-align: middle;
-max-width: 100%;}
+        @keyframes scale {
 
-/* Slideshow container */
-.slideshow-container {
-  max-width: auto;
-  position: relative;
-  margin: auto;
-  height: 35vh;
-  overflow: hidden;
-  display: block;
-  background: url(./pics/airtool2.png) no-repeat center center;
-  background-size: cover;
-}
+            0%,
+            100% {
+                transform: none;
+            }
 
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 2s;
-  animation-name: fade;
-  animation-duration: 2s;
-}
+            50% {
+                transform: scale3d(1.1, 1.1, 1);
+            }
+        }
 
-@-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
+        @keyframes fill {
+            100% {
+                box-shadow: inset 0px 0px 0px 30px #7ac142;
+            }
+        }
 
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-@media only screen and (max-width: 300px) {
-  .text {font-size: 11px}
-}
+        img {
+            vertical-align: middle;
+            max-width: 100%;
+        }
 
-#box{
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: fit-content;
-    width: 400px;
-    background-color: #2a2a2a;
-    z-index: 300;
-    border-radius: 5px;
-    display: none;
-    }
-    @keyframes backin{
-        from{
+        /* Slideshow container */
+        .slideshow-container {
+            max-width: auto;
+            position: relative;
+            margin: auto;
+            height: 35vh;
+            overflow: hidden;
+            display: block;
+            background: url(./pics/airtool2.png) no-repeat center center;
+            background-size: cover;
+        }
+
+        .fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 2s;
+            animation-name: fade;
+            animation-duration: 2s;
+        }
+
+        @-webkit-keyframes fade {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes fade {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        @media only screen and (max-width: 300px) {
+            .text {
+                font-size: 11px
+            }
+        }
+
+        #box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: fit-content;
+            width: 400px;
+            background-color: #2a2a2a;
+            z-index: 300;
+            border-radius: 5px;
+            display: none;
+        }
+
+        @keyframes backin {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 0.5;
+            }
+        }
+
+        @keyframes backout {
+            to {
+                opacity: 0;
+            }
+
+            from {
+                opacity: 0.5;
+            }
+        }
+
+        #done {
+            margin-bottom: -100vh;
             opacity: 0;
+            display: none;
+            z-index: 100;
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            background-color: black;
+            margin-right: 190px;
         }
-        to{
-            opacity: 0.5;
-        }
-    }
-    @keyframes backout{
-        to{
-            opacity: 0;
-        }
-        from{
-            opacity: 0.5;
-        }
-    }
-    #done{margin-bottom: -100vh; opacity: 0; display: none; z-index: 100; position: relative; height: 100vh; width: 100%; background-color: black;margin-right: 190px;}
 
-    @keyframes fadeinbox{
-    0%{
-        opacity: 0;
-        padding-left: 0px;
-        padding-top: 0px;
-    }
-     100%{
-        opacity: 1; 
-        height: fit-content;
-    width: 400px; 
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding-left: 0px;
-    padding-top: 0px;
-    }
-    }
+        @keyframes fadeinbox {
+            0% {
+                opacity: 0;
+                padding-left: 0px;
+                padding-top: 0px;
+            }
 
-    @keyframes fadeoutbox{
-    100%{
-        opacity: 0;
-        padding-left: 0px;
-        padding-top: 0px;
-    }
-     0%{
-        opacity: 1; 
-        height: fit-content;
-    width: 400px; 
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding-left: 0px;
-    padding-top: 0px;
-    }
-    }
+            100% {
+                opacity: 1;
+                height: fit-content;
+                width: 400px;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                padding-left: 0px;
+                padding-top: 0px;
+            }
+        }
 
-</style>
+        @keyframes fadeoutbox {
+            100% {
+                opacity: 0;
+                padding-left: 0px;
+                padding-top: 0px;
+            }
+
+            0% {
+                opacity: 1;
+                height: fit-content;
+                width: 400px;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                padding-left: 0px;
+                padding-top: 0px;
+            }
+        }
+    </style>
 </head>
 <div id="menu">
     <ul>
-        <li onMouseUp="window.location.href = './index.html'"><img src="./pics/zuhause.svg" height="30px" style="margin-right: 10px;"><section style="display: block;">Home</section></li>
-        <li onMouseUp="window.location.href = './seats.html'"><img src="./pics/seats.svg" height="30px" style="margin-right: 10px;"><section style="display: block;">Seatplans</section></li>
-        <li onMouseUp="window.location.href = './audiopacks.html'"><img src="./pics/ausgleichsbalken.svg" height="30px" style="margin-right: 10px;"><section style="display: block;">Audiopacks</section></li>
-        <li onMouseUp="require('electron').shell.openExternal('https://discord.gg/uxnGpVqZsX')"><img src="./pics/discord.svg" height="30px" style="margin-right: 10px;"><section style="display: block;">Discord</section></li>
-        <li onMouseUp="window.location.href = './settings.html'"><img src="./pics/settings.svg" height="30px" style="margin-right: 10px;"><section style="display: block;">Settings</section></li>
-       <div id="version" style="bottom: 40px; position: absolute; margin-left: 30%;">v0.2_BETA</div>
+        <li onMouseUp="window.location.href = './index.html'"><img src="./pics/zuhause.svg" height="30px"
+                style="margin-right: 10px;">
+            <section style="display: block;">Home</section>
+        </li>
+        <li onMouseUp="window.location.href = './seats.html'"><img src="./pics/seats.svg" height="30px"
+                style="margin-right: 10px;">
+            <section style="display: block;">Seatplans</section>
+        </li>
+        <li onMouseUp="window.location.href = './audiopacks.html'"><img src="./pics/ausgleichsbalken.svg" height="30px"
+                style="margin-right: 10px;">
+            <section style="display: block;">Audiopacks</section>
+        </li>
+        <li onMouseUp="require('electron').shell.openExternal('https://discord.gg/uxnGpVqZsX')"><img
+                src="./pics/discord.svg" height="30px" style="margin-right: 10px;">
+            <section style="display: block;">Discord</section>
+        </li>
+        <li onMouseUp="window.location.href = './settings.html'"><img src="./pics/settings.svg" height="30px"
+                style="margin-right: 10px;">
+            <section style="display: block;">Settings</section>
+        </li>
+        <div id="version" style="bottom: 40px; position: absolute; margin-left: 30%;">v0.2_BETA</div>
     </ul>
 
 </div>
+
 <body>
 
     <div id="done"></div>
     <div id="box">
-        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-        viewBox="0 0 455.111 455.111" style="enable-background:new 0 0 455.111 455.111;" xml:space="preserve">
-   <circle style="fill:#E24C4B;" cx="227.556" cy="227.556" r="227.556"/>
-   <path style="fill:#D1403F;" d="M455.111,227.556c0,125.156-102.4,227.556-227.556,227.556c-72.533,0-136.533-32.711-177.778-85.333
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px" y="0px" viewBox="0 0 455.111 455.111" style="enable-background:new 0 0 455.111 455.111;"
+            xml:space="preserve">
+            <circle style="fill:#E24C4B;" cx="227.556" cy="227.556" r="227.556" />
+            <path style="fill:#D1403F;" d="M455.111,227.556c0,125.156-102.4,227.556-227.556,227.556c-72.533,0-136.533-32.711-177.778-85.333
        c38.4,31.289,88.178,49.778,142.222,49.778c125.156,0,227.556-102.4,227.556-227.556c0-54.044-18.489-103.822-49.778-142.222
-       C422.4,91.022,455.111,155.022,455.111,227.556z"/>
-   <path style="fill:#FFFFFF;" d="M331.378,331.378c-8.533,8.533-22.756,8.533-31.289,0l-72.533-72.533l-72.533,72.533
+       C422.4,91.022,455.111,155.022,455.111,227.556z" />
+            <path style="fill:#FFFFFF;" d="M331.378,331.378c-8.533,8.533-22.756,8.533-31.289,0l-72.533-72.533l-72.533,72.533
        c-8.533,8.533-22.756,8.533-31.289,0c-8.533-8.533-8.533-22.756,0-31.289l72.533-72.533l-72.533-72.533
        c-8.533-8.533-8.533-22.756,0-31.289c8.533-8.533,22.756-8.533,31.289,0l72.533,72.533l72.533-72.533
        c8.533-8.533,22.756-8.533,31.289,0c8.533,8.533,8.533,22.756,0,31.289l-72.533,72.533l72.533,72.533
-       C339.911,308.622,339.911,322.844,331.378,331.378z"/>
-   </svg>
-   
-      <div id="branding_header" style="text-align: center; margin-top: 10px; padding-bottom: 10px; font-size: 20px;">Done</div>
-      </div>
+       C339.911,308.622,339.911,322.844,331.378,331.378z" />
+        </svg>
+
+        <div id="branding_header" style="text-align: center; margin-top: 10px; padding-bottom: 10px; font-size: 20px;">
+            Done</div>
+    </div>
 
 
-<div class="slideshow-container" style="margin-right: 190px;">
+    <div class="slideshow-container" style="margin-right: 190px;">
 
-<div class="mySlides fade"  style="display:  flex; justify-content: center;
+        <div class="mySlides fade" style="display:  flex; justify-content: center;
 align-items: center; height: 0px;">
-  <!-- <img src="./pics/airtool2.png" style="width:100%; margin-top: 300px;"> -->
-</div>
-<script>
+        </div>
+        <script>
 
 
 
-require('dns').resolve('www.google.com', function(err) {
-    if (err) {
-        var fs = require("fs")
-        var site = fs.readFileSync("./html/nointernet.html", "UTF-8")
-    //  return win.loadFile('./html/nointernet.html')
-      return document.body.innerHTML = "<section id='content'>"+site+"</section>"
-    }
-  });
-
-async function error(error){
-    document.getElementById("branding_header").innerHTML = error
-document.getElementById("done").style=`animation-name: backin;
-    animation-fill-mode: forwards;
-    animation-timing-function: easy-eas;
-    animation-duration: 0.5s;
-    display: block;`
-
-    document.getElementById("box").style = `animation-name: fadeinbox;
-    animation-fill-mode: forwards;
-    animation-timing-function: easy-eas;
-    animation-duration: 0.5s;
-    display: block;`;
-
-
-    setTimeout(()=>{
-    document.getElementById("box").style = `animation-name: fadeoutbox;
-    animation-fill-mode: forwards;
-    animation-timing-function: easy-eas;
-    animation-duration: 0.5s;
-    display: block;`;
-    document.getElementById("done").style=`animation-name: backout;
-    animation-fill-mode: forwards;
-    animation-timing-function: easy-eas;
-    animation-duration: 0.5s;
-    display: block;`
-    setTimeout(()=>{
-        document.getElementById("done").style="display: none"
-    },500)
-    }, 8000)
-}
-
-    async function update_app(){
-
-        const https = require("https")
-        const fs = require("fs")
-
-        const URL = "https://lukeairtool.net/LAT/airtool_latest.zip"
-
-        const fetch = require('node-fetch');
-
-let url = "http://lukeairtool.net/LAT/version.json";
-
-let settings = { method: "Get" };
-var filesize= "2";
-var version = "0"
-var launcher_version = "0";
-
-await fetch(url, settings)
-    .then(res => res.json())
-    .then((json) => {
-        filesize = json.filesize
-        version = json.version
-        launcher_version = json.launcher
-    });
-
-        console.log("LAUNCHER "+launcher_version)
-        var local_launcher_version = JSON.parse(fs.readFileSync( "./config.json", "utf8")).local_launcher_version 
-        if(launcher_version < local_launcher_version) error("You are using an outdated version of the launcher. Some pages will probably stop working")
-        if(!version) return error("We could not find any version number on our server")  
-
-        https.get(URL, function(res){
-        const fileStream = fs.createWriteStream("airtool.zip")
-        res.pipe(fileStream)
-        if(res.statusCode == "404") return error("We could not find this data on our server: airtool_latest.zip") 
-        document.getElementById("download_button").style.display="none"
-        document.getElementById("download_progress").style.display="block"
-        var stats;
-        var yk = setInterval(function(){
-            stats = fs.statSync("airtool.zip")
-            var rimraf = require("rimraf");
-var store = fs.readFileSync( "./config.json", "utf8")
-fs.readdirSync(JSON.parse(store).storein).forEach(file => {
-    var stats1 = fs.statSync(JSON.parse(store).storein+"\\"+file);
-    if(stats1.isDirectory()){
-        if(file== "Airliners") return
-        if(file== "PaxSim") return
-        rimraf.sync(JSON.parse(store).storein+"\\"+file);
-    }else{
-        fs.unlinkSync(JSON.parse(store).storein+"\\"+file)
-    }
-
- });
-
-        setTimeout(function(){
-            var stats = fs.statSync("airtool.zip")
-            console.log(stats.size)
-        var fileSizeInBytes = stats.size;
-        var fileSizeInMegabytes = fileSizeInBytes / (1024*1024); 
-        console.log(fileSizeInMegabytes)
-        var megabytes = fileSizeInMegabytes.toString().split('.')[0]
-   var z1 = fileSizeInMegabytes;
-   var z2 = filesize;
-   pr = Math.round(z1 / z2 * 100) + "%"
-  
-    document.getElementById("progresbar_sub").style.width = `${pr}`
-    console.log(`${pr}`)
-    document.getElementById("download_progress_number").innerText =`${megabytes}MB/${filesize}MB`
-},100) 
-},100)
-        try{
-        fileStream.on("finish", async function(){
-            fileStream.close()
-            console.log("Done")
-            clearInterval(yk)
-            document.getElementById("download_button").innerHTML = '<img src="./pics/play.svg" style="display: inline-block; height: 25px; margin-top: 0px;"><section style="display: inline-block;font-family: Roboto; font-weight: bold; color: white; font-size: 20px; padding-left: 10px; padding-top: -10px;">Play</section>'
-            document.getElementById("download_button").setAttribute( "onMouseUp", "launchapp()" );
-            document.getElementById("download_progress_number").innerText =`16MB/16MB`
-            const unzipper = require('unzipper')
-            
-            var store = fs.readFileSync( "./config.json", "utf8");
-            var store = JSON.parse(store).storein
-            console.log(store)
-                  var hi =  fs.createReadStream('airtool.zip')
-                    .pipe(unzipper.Extract({ path: store }))
-                hi.on("finish", async function(){ 
-                    document.getElementById("download_button").style.display="block"
-                    document.getElementById("download_progress").style.display="none"
-                    fs.writeFileSync(store+"/version.json", `{"version":"${version}"}`)
-                    console.log('Extraction complete')
-                })
-                
-        })
-    }catch(e){
-        var store = fs.readFileSync( "./config.json", "utf8");
-            var store = JSON.parse(store).storein
-        return error("We could not install LukeAirTool in " + store +". Make sure you ran the launcher with admin perms and that the launcher can actually write in the folder")
-    }
-    })
-
-    }
-    
-
-
-   async function download(){
-        const https = require("https")
-        const fs = require("fs")
-
-        const URL = "https://lukeairtool.net/LAT/airtool_latest.zip"
-
-        const fetch = require('node-fetch');
-
-let url = "http://lukeairtool.net/LAT/version.json";
-
-let settings = { method: "Get" };
-var filesize= "2";
-var version = "0"
-
-
-try{
-await fetch(url, settings)
-    .then(res => res.json())
-    .then((json) => {
-        filesize = json.filesize
-        version = json.version
-    });
-}catch(e){
-    if(version == "0") return error("We could not find any version number on our server")  
-}
-        https.get(URL, function(res){
-        const fileStream = fs.createWriteStream("airtool.zip")
-        res.pipe(fileStream)
-        if(res.statusCode == "404") return error("We could not find this data on our server: airtool_latest.zip")
-        document.getElementById("download_button").style.display="none"
-        document.getElementById("download_progress").style.display="block"
-        var stats;
-        var yk = setInterval(function(){
-            stats = fs.statSync("airtool.zip")
-         
-        setTimeout(function(){
-            var stats = fs.statSync("airtool.zip")
-            console.log(stats.size)
-        var fileSizeInBytes = stats.size;
-        var fileSizeInMegabytes = fileSizeInBytes / (1024*1024); 
-        console.log(fileSizeInMegabytes)
-        var megabytes = fileSizeInMegabytes.toString().split('.')[0]
-   var z1 = fileSizeInMegabytes;
-   var z2 = filesize;
-   pr = Math.round(z1 / z2 * 100) + "%"
-  
-    document.getElementById("progresbar_sub").style.width = `${pr}`
-    console.log(`${pr}`)
-    document.getElementById("download_progress_number").innerText =`${megabytes}MB/${filesize}MB`
-},100) 
-},100)
-
-        fileStream.on("finish", async function(){
-            fileStream.close()
-            console.log("Done")
-            clearInterval(yk)
-            document.getElementById("download_button").innerHTML = '<img src="./pics/play.svg" style="display: inline-block; height: 25px; margin-top: 0px;"><section style="display: inline-block;font-family: Roboto; font-weight: bold; color: white; font-size: 20px; padding-left: 10px; padding-top: -10px;">Play</section>'
-            document.getElementById("download_button").setAttribute( "onMouseUp", "launchapp()" );
-            document.getElementById("download_progress_number").innerText =`16MB/16MB`
-            const unzipper = require('unzipper')
-            
-            var store = fs.readFileSync( "./config.json", "utf8");
-            var store = JSON.parse(store).storein
-            console.log(store)
-            if(store == __dirname + "\\AirTool"){
-                try{
-                fs.mkdirSync(__dirname + "\\AirTool");
-                }catch(e){
-                    console.log(e)
+            require('dns').resolve('www.google.com', function (err) {
+                if (err) {
+                    var fs = require("fs")
+                    var site = fs.readFileSync("./html/nointernet.html", "UTF-8")
+                    return document.body.innerHTML = "<section id='content'>" + site + "</section>"
                 }
-            } 
-                  var hi =  fs.createReadStream('airtool.zip')
-                    .pipe(unzipper.Extract({ path: store }))
-                hi.on("finish", async function(){ 
-                    document.getElementById("download_button").style.display="block"
-                    document.getElementById("download_progress").style.display="none"
-                    fs.writeFileSync(store+"/version.json", `{"version":"${version}"}`)
-                    console.log('Extraction complete')
-                })
-                
-        })
-    })
-    }
+            });
 
-    function launchapp(){
-        const fs = require("fs")
-    var exec = require('child_process').exec
-        console.log("Hi")
-        var dirname1 = __dirname.slice(0, -5).toString().split("/")
-        var store = fs.readFileSync( "./config.json", "utf8");
-            var store = JSON.parse(store).storein
-            var store = `"${store}/AirTool.exe"`
-            console.log(store)
-        console.log(dirname1)
-        dirname1 = dirname1.splice(-2,2)
-        const remote = require('electron').remote
-        let w = remote.getCurrentWindow()
-        w.close()
-        if(JSON.parse(fs.readFileSync( "./config.json", "utf8")).admin == "false"){
-            console.log("NO ADMIN")
-                        exec(store, function(err, data) {  
-                        console.log(err)
-                        console.log(data.toString());                       
-                    });  
-        }else{
-            console.log("ADMIN")
-            store = store.replace('"',"'")
-            store = store.replace('"',"'")
-            exec('Powershell.exe Start-process '+store+' -verb runas', function(err, data) {  
-                        console.log(err)
-                        console.log(data.toString());                       
+            async function error(error) {
+                document.getElementById("branding_header").innerHTML = error
+                document.getElementById("done").style = `animation-name: backin;
+    animation-fill-mode: forwards;
+    animation-timing-function: easy-eas;
+    animation-duration: 0.5s;
+    display: block;`
+
+                document.getElementById("box").style = `animation-name: fadeinbox;
+    animation-fill-mode: forwards;
+    animation-timing-function: easy-eas;
+    animation-duration: 0.5s;
+    display: block;`;
+
+
+                setTimeout(() => {
+                    document.getElementById("box").style = `animation-name: fadeoutbox;
+    animation-fill-mode: forwards;
+    animation-timing-function: easy-eas;
+    animation-duration: 0.5s;
+    display: block;`;
+                    document.getElementById("done").style = `animation-name: backout;
+    animation-fill-mode: forwards;
+    animation-timing-function: easy-eas;
+    animation-duration: 0.5s;
+    display: block;`
+                    setTimeout(() => {
+                        document.getElementById("done").style = "display: none"
+                    }, 500)
+                }, 8000)
+            }
+
+            async function update_app() {
+
+                const https = require("https")
+                const fs = require("fs")
+
+           
+
+                const fetch = require('node-fetch');
+
+                let url = "http://lukeairtool.net/LAT/version.json";
+
+                let settings = { method: "Get" };
+                var filesize = "2";
+                var version = "0"
+                var launcher_version = "0";
+
+                await fetch(url, settings)
+                    .then(res => res.json())
+                    .then((json) => {
+                        filesize = json.filesize
+                        version = json.version
+                        launcher_version = json.launcher
+                        force_download = json.force
                     });
-        }
-    }
-</script>
-</div>
-<br>
-<div id="download_container" style="margin-top: -100px; z-index: 1; position: relative; margin-right: 10px; margin-left: 10px; width: auto; display: block; margin-right: 190px;">
-    <div id="branding">
-        <div id="branding_header">
 
-            LukeAirTool
+                console.log("LAUNCHER " + launcher_version)
+                var local_launcher_version = JSON.parse(fs.readFileSync("./config.json", "utf8")).local_launcher_version
+                if (launcher_version < local_launcher_version) error("You are using an outdated version of the launcher. Some pages will probably stop working")
+                if (!version) return error("We could not find any version number on our server")
+                
+                var storelocal = JSON.parse(fs.readFileSync("./config.json", "utf8")).storein
+                var installedversion = JSON.parse(fs.readFileSync(storelocal + "/version.json")).version
+
+                var download_url
+                var file
+
+                function version_smallupdate() {
+                    var split = version.split(".")
+                    if(installedversion.split(".")[2] < split[2] || installedversion.split(".")[3] < split[3]){
+                        return true
+                    }else{
+                    return false
+                    }
+                } 
+                console.log(`%c ${version_smallupdate()}`, "color: red")
+                
+
+                if(force_download == true){
+                    download_url = "https://lukeairtool.net/LAT/airtool_exe.zip"
+                    file = "airtool_exe.zip"
+                    filesize = "7"
+                }else if(version_smallupdate() == true){
+                   download_url = "https://lukeairtool.net/LAT/airtool_exe.zip"
+                   file = "airtool_exe.zip"
+                   filesize = "7"
+                }else{
+                    download_url = "https://lukeairtool.net/LAT/airtool_latest.zip" 
+                    file = "airtool_latest.zip"
+                }
+
+                https.get(download_url, function (res) {
+                    const fileStream = fs.createWriteStream("airtool.zip")
+                    res.pipe(fileStream)
+                    if (res.statusCode == "404") return error(`We could not find this data on our server: ${file}`)
+                    document.getElementById("download_button").style.display = "none"
+                    document.getElementById("download_progress").style.display = "block"
+                    var stats;
+                    var yk = setInterval(function () {
+                        stats = fs.statSync("airtool.zip")
+                        var rimraf = require("rimraf");
+                        var store = fs.readFileSync("./config.json", "utf8")
+                        
+                        if(download_url == "https://lukeairtool.net/LAT/airtool_latest.zip"){
+                        fs.readdirSync(JSON.parse(store).storein).forEach(file => {
+                            var stats1 = fs.statSync(JSON.parse(store).storein + "\\" + file);
+                            if (stats1.isDirectory()) {
+                                if (file == "Airliners") return
+                                if (file == "PaxSim") return
+                                rimraf.sync(JSON.parse(store).storein + "\\" + file);
+                            } else {
+                                fs.unlinkSync(JSON.parse(store).storein + "\\" + file)
+                            }
+
+                        });
+                    }else{
+                        try{
+                        fs.unlinkSync(JSON.parse(store).storein + "\\AirTool.exe")
+                        }catch(err){}
+                    }
+
+                        setTimeout(function () {
+
+                            console.log(download_url)
+
+                            var stats = fs.statSync("airtool.zip")
+                            console.log(stats.size)
+                            var fileSizeInBytes = stats.size;
+                            var fileSizeInMegabytes = fileSizeInBytes / (1024 * 1024);
+                            console.log(fileSizeInMegabytes)
+                            var megabytes = fileSizeInMegabytes.toString().split('.')[0]
+                            var z1 = fileSizeInMegabytes;
+                            var z2 = filesize;
+                            pr = Math.round(z1 / z2 * 100) + "%"
+
+                            document.getElementById("progresbar_sub").style.width = `${pr}`
+                            // win.setProgressBar(0 + "." + pr)
+                            console.log(`${pr}`)
+                            var pr_for_taskbar = Math.round(z1 / z2 * 100)
+                            if (pr_for_taskbar < 10) {
+                                pr_for_taskbar = "0" + Math.round(pr_for_taskbar)
+                            }
+                            let win = require('electron').remote.getCurrentWindow();
+                            win.setProgressBar(Number(`0.${pr_for_taskbar}`))
+                            document.getElementById("download_progress_number").innerText = `${megabytes}MB/${filesize}MB`
+                            console.log(`%c ${version_smallupdate()}`, "color: red")
+                        }, 100)
+                    }, 100)
+                    try {
+                        fileStream.on("finish", async function () {
+                            fileStream.close()
+                            console.log("Done")
+                            clearInterval(yk)
+                            document.getElementById("download_button").innerHTML = '<img src="./pics/play.svg" style="display: inline-block; height: 25px; margin-top: 0px;"><section style="display: inline-block;font-family: Roboto; font-weight: bold; color: white; font-size: 20px; padding-left: 10px; padding-top: -10px;">Play</section>'
+                            document.getElementById("download_button").setAttribute("onMouseUp", "launchapp()");
+                            document.getElementById("download_progress_number").innerText = `16MB/16MB`
+                            const unzipper = require('unzipper')
+
+                            var store = fs.readFileSync("./config.json", "utf8");
+                            var store = JSON.parse(store).storein
+                            console.log(store)
+                            var hi = fs.createReadStream('airtool.zip')
+                                .pipe(unzipper.Extract({ path: store }))
+                            hi.on("finish", async function () {
+                                document.getElementById("download_button").style.display = "block"
+                                document.getElementById("download_progress").style.display = "none"
+                                fs.writeFileSync(store + "/version.json", `{"version":"${version}"}`)
+                                console.log('Extraction complete')
+                                let win = require('electron').remote.getCurrentWindow();
+                                win.setProgressBar(0)
+                            })
+
+                        })
+                    } catch (e) {
+                        var store = fs.readFileSync("./config.json", "utf8");
+                        var store = JSON.parse(store).storein
+                        fs.writeFileSync("log.txt", e);
+                        return error("We could not install LukeAirTool in " + store + ". Make sure you ran the launcher with admin perms and that the launcher can actually write in the folder")
+                    }
+                })
+
+            }
+
+
+
+            async function download() {
+                const https = require("https")
+                const fs = require("fs")
+
+                const URL = "https://lukeairtool.net/LAT/airtool_latest.zip"
+
+                const fetch = require('node-fetch');
+
+                let url = "http://lukeairtool.net/LAT/version.json";
+
+                let settings = { method: "Get" };
+                var filesize = "2";
+                var version = "0"
+
+
+                try {
+                    await fetch(url, settings)
+                        .then(res => res.json())
+                        .then((json) => {
+                            filesize = json.filesize
+                            version = json.version
+                        });
+                } catch (e) {
+                    fs.writeFileSync("log.txt", e);
+                    if (version == "0") return error("We could not find any version number on our server")
+                }
+                https.get(URL, function (res) {
+                    const fileStream = fs.createWriteStream("airtool.zip")
+                    res.pipe(fileStream)
+                    if (res.statusCode == "404") return error("We could not find this data on our server: airtool_latest.zip")
+                    document.getElementById("download_button").style.display = "none"
+                    document.getElementById("download_progress").style.display = "block"
+                    var stats;
+                    var yk = setInterval(function () {
+                        stats = fs.statSync("airtool.zip")
+
+                        setTimeout(function () {
+                            var stats = fs.statSync("airtool.zip")
+                            console.log(stats.size)
+                            var fileSizeInBytes = stats.size;
+                            var fileSizeInMegabytes = fileSizeInBytes / (1024 * 1024);
+                            console.log(fileSizeInMegabytes)
+                            var megabytes = fileSizeInMegabytes.toString().split('.')[0]
+                            var z1 = fileSizeInMegabytes;
+                            var z2 = filesize;
+                            pr = Math.round(z1 / z2 * 100) + "%"
+
+                            document.getElementById("progresbar_sub").style.width = `${pr}`
+                            console.log(`${pr}`)
+                            let win = require('electron').remote.getCurrentWindow();
+                            var pr_for_taskbar = Math.round(z1 / z2 * 100)
+                            if (pr_for_taskbar < 10) {
+                                pr_for_taskbar = "0" + Math.round(pr_for_taskbar)
+                            }
+                            console.log(`TASKBAR 0.${Math.round(pr_for_taskbar)}`)
+                            win.setProgressBar(Number(`0.${pr_for_taskbar}`))
+                            document.getElementById("download_progress_number").innerText = `${megabytes}MB/${filesize}MB`
+                        }, 100)
+                    }, 100)
+
+                    fileStream.on("finish", async function () {
+                        let win = require('electron').remote.getCurrentWindow();
+                        win.setProgressBar(1)
+                        fileStream.close()
+                        console.log("Done")
+                        clearInterval(yk)
+                        document.getElementById("download_button").innerHTML = '<img src="./pics/play.svg" style="display: inline-block; height: 25px; margin-top: 0px;"><section style="display: inline-block;font-family: Roboto; font-weight: bold; color: white; font-size: 20px; padding-left: 10px; padding-top: -10px;">Play</section>'
+                        document.getElementById("download_button").setAttribute("onMouseUp", "launchapp()");
+                        document.getElementById("download_progress_number").innerText = `16MB/16MB`
+                        const unzipper = require('unzipper')
+
+                        var store = fs.readFileSync("./config.json", "utf8");
+                        var store = JSON.parse(store).storein
+                        console.log(store)
+                        if (store == __dirname + "\\AirTool") {
+                            try {
+                                fs.mkdirSync(__dirname + "\\AirTool");
+                            } catch (e) {
+                                fs.writeFileSync("log.txt", e);
+                                console.log(e)
+                            }
+                        }
+                        var hi = fs.createReadStream('airtool.zip')
+                            .pipe(unzipper.Extract({ path: store }))
+                        hi.on("finish", async function () {
+                            document.getElementById("download_button").style.display = "block"
+                            document.getElementById("download_progress").style.display = "none"
+                            fs.writeFileSync(store + "/version.json", `{"version":"${version}"}`)
+                            console.log('Extraction complete')
+                            let win = require('electron').remote.getCurrentWindow();
+                            win.setProgressBar(0)
+                        })
+
+                    })
+                })
+            }
+
+            function launchapp() {
+                const fs = require("fs")
+                var exec = require('child_process').exec
+                console.log("Hi")
+                var dirname1 = __dirname.slice(0, -5).toString().split("/")
+                var store = fs.readFileSync("./config.json", "utf8");
+                var store = JSON.parse(store).storein
+                var store = `"${store}/AirTool.exe"`
+                console.log(store)
+                console.log(dirname1)
+                dirname1 = dirname1.splice(-2, 2)
+                const remote = require('electron').remote
+                let w = remote.getCurrentWindow()
+                w.close()
+                if (JSON.parse(fs.readFileSync("./config.json", "utf8")).admin == "false") {
+                    console.log("NO ADMIN")
+                    exec(store, function (err, data) {
+                        console.log(err)
+                        console.log(data.toString());
+                    });
+                } else {
+                    console.log("ADMIN")
+                    store = store.replace('"', "'")
+                    store = store.replace('"', "'")
+                    exec('Powershell.exe Start-process ' + store + ' -verb runas', function (err, data) {
+                        console.log(err)
+                        console.log(data.toString());
+                    });
+                }
+            }
+        </script>
+    </div>
+    <br>
+    <div id="download_container"
+        style="margin-top: -100px; z-index: 1; position: relative; margin-right: 10px; margin-left: 10px; width: auto; display: block; margin-right: 190px;">
+        <div id="branding">
+            <div id="branding_header">
+
+                LukeAirTool
+            </div>
+            <div id="branding-version">
+
+            </div>
+        </div><br>
+        <div id="download_progress" style="display: none; margin-top:-60px; margin-right: -150px;">
+            <section id="download_progress_number">0MB/16MB</section>
+            <div id="progresbar">
+                <div id="progresbar_sub"></div>
+            </div>
         </div>
-        <div id="branding-version">
+        <button onMouseUp="download()" id="download_button"
+            style="margin-top:-70px; float: right; cursor: pointer; height: 50px; width: 200px; font-family: Roboto; background-color: #459121; border-radius: 5px; border: 0px solid; font-family: Roboto; font-weight: bold; color: white; font-size: 20px;"><img
+                src="./pics/herunterladen.svg" style="display: inline-block; height: 25px; margin-top: -10px;">
+            <section
+                style="display: inline-block;font-family: Roboto; font-weight: bold; color: white; font-size: 20px; padding-left: 10px; padding-top: 0px;">
+                Download</section>
+        </button>
+    </div>
+    <script>
+        async function ineedsomethingforasyncsry() {
+            console.log("Loaded")
+            const fs = require("fs")
+            let url = "http://lukeairtool.net/LAT/version.json";
+
+            let settings = { method: "Get" };
+            var filesize = "2";
+            var version = "0"
+            var launcher_version = "0";
+
+
+            async function getData() {
+                await fetch(url, settings)
+                    .then(res => res.json())
+                    .then((json) => {
+                        console.log(json)
+                        filesize = json.filesize
+                        version = json.version
+                        launcher_version = json.launcher
+                    });
+
+                    
+
+            }
+            setInterval(getData, 1500)
+            await getData();
+
+            console.log("LAUNCHER " + launcher_version)
+            var local_launcher_version = JSON.parse(fs.readFileSync("./config.json", "utf8")).local_launcher_version
+            if (launcher_version > local_launcher_version) error("You are using an outdated version of the launcher. Some pages will probably stop working")
+            console.log(version)
+            function check() {
+                const fs = require("fs")
+                var store = fs.readFileSync("./config.json", "utf8")
+                var store = JSON.parse(store).storein
+                var installedversion;
+                try {
+                    installedversion = JSON.parse(fs.readFileSync(store + "/version.json")).version
+                } catch (err) {
+                    installedversion = version
+                }
+                console.log("Installed: ", installedversion)
+                console.log("Server: ", version)
+
             
-        </div>
-    </div><br>
-    <div id="download_progress" style="display: none; margin-top:-60px; margin-right: -150px;">
-        <section id="download_progress_number">0MB/16MB</section>
-        <div id="progresbar">
-            <div id="progresbar_sub"></div>
-        </div>
-    </div>
-    <button onMouseUp="download()" id="download_button" style="margin-top:-70px; float: right; cursor: pointer; height: 50px; width: 200px; font-family: Roboto; background-color: #459121; border-radius: 5px; border: 0px solid; font-family: Roboto; font-weight: bold; color: white; font-size: 20px;"><img src="./pics/herunterladen.svg" style="display: inline-block; height: 25px; margin-top: -10px;"><section style="display: inline-block;font-family: Roboto; font-weight: bold; color: white; font-size: 20px; padding-left: 10px; padding-top: 0px;">Download</section></button>
-</div>
-<script>
-    async function ineedsomethingforasyncsry(){
-    console.log("Loaded")
-    const fs = require("fs")
-    let url = "http://lukeairtool.net/LAT/version.json";
 
-let settings = { method: "Get" };
-var filesize= "2";
-var version = "0"
-var launcher_version = "0";
-
-
-async function getData(){
-    await fetch(url, settings)
-    .then(res => res.json())
-    .then((json) => {
-        console.log(json)
-        filesize = json.filesize
-        version = json.version
-        launcher_version = json.launcher
-    });
-}
-setInterval(getData, 1500)
-await getData();
-
-console.log("LAUNCHER "+launcher_version)
-        var local_launcher_version = JSON.parse(fs.readFileSync( "./config.json", "utf8")).local_launcher_version 
-        if(launcher_version > local_launcher_version) error("You are using an outdated version of the launcher. Some pages will probably stop working")
-console.log(version)
-    function check(){
-    const fs = require("fs")
-    var store = fs.readFileSync( "./config.json", "utf8")
-    var store = JSON.parse(store).storein
-    var installedversion;
-    try{
-        installedversion = JSON.parse( fs.readFileSync(store + "/version.json")).version
-    }catch(err){
-        installedversion = version
-    }
-    console.log("Installed: ", installedversion)
-    console.log("Server: ", version)
-if(installedversion){
-    document.getElementById("branding-version").innerHTML = `v.${installedversion}`
-if(installedversion < version){
-    console.log("Yikes")
-        document.getElementById("download_button").innerHTML = '<img src="./pics/refresh.svg" style="display: inline-block; height: 25px; margin-top: 0px;"><section style="display: inline-block;font-family: Roboto; font-weight: bold; color: white; font-size: 20px; padding-left: 10px; padding-top: -10px;">Update</section>'
-        document.getElementById("download_button").style.backgroundColor ="#6fbbd3"
-        document.getElementById("download_button").setAttribute( "onMouseUp", "update_app()" );
-        document.getElementById("branding-version").innerHTML = `v.${installedversion} (v.${version} is out)`
-        return false;
-        console.log("THERE IS A NEWER VERSION")
-    }
-}
+                if (installedversion) {
+                    document.getElementById("branding-version").innerHTML = `v.${installedversion}`
+                    if (installedversion < version) {
+                        console.log("Yikes")
+                        document.getElementById("download_button").innerHTML = '<img src="./pics/refresh.svg" style="display: inline-block; height: 25px; margin-top: 0px;"><section style="display: inline-block;font-family: Roboto; font-weight: bold; color: white; font-size: 20px; padding-left: 10px; padding-top: -10px;">Update</section>'
+                        document.getElementById("download_button").style.backgroundColor = "#6fbbd3"
+                        document.getElementById("download_button").setAttribute("onMouseUp", "update_app()");
+                        document.getElementById("branding-version").innerHTML = `v.${installedversion} (v.${version} is out)`
+                        return false;
+                        console.log("THERE IS A NEWER VERSION")
+                    }
+                }
 
 
 
-if (fs.existsSync(store+"/AirTool.exe")) {
-    document.getElementById("download_button").setAttribute( "onMouseUp", "launchapp()" );
-    document.getElementById("download_button").innerHTML = '<img src="./pics/play.svg" style="display: inline-block; height: 25px; margin-top: 0px;"><section style="display: inline-block;font-family: Roboto; font-weight: bold; color: white; font-size: 20px; padding-left: 10px; padding-top: -10px;">Play</section>'
-    return true;
+                if (fs.existsSync(store + "/AirTool.exe")) {
+                    document.getElementById("download_button").setAttribute("onMouseUp", "launchapp()");
+                    document.getElementById("download_button").innerHTML = '<img src="./pics/play.svg" style="display: inline-block; height: 25px; margin-top: 0px;"><section style="display: inline-block;font-family: Roboto; font-weight: bold; color: white; font-size: 20px; padding-left: 10px; padding-top: -10px;">Play</section>'
+                    return true;
 
-}else {
-    return false;
-}
-
-
-    }
-
-setInterval(()=>{
-    check();
-},100)
+                } else {
+                    return false;
+                }
 
 
-setInterval(function(){
-const exec = require('child_process').exec
+            }
 
-function isRunning(win, mac, linux){
-    return new Promise(function(resolve, reject){
-        const plat = process.platform
-        const cmd = plat == 'win32' ? 'tasklist' : (plat == 'darwin' ? 'ps -ax | grep ' + mac : (plat == 'linux' ? 'ps -A' : ''))
-        const proc = plat == 'win32' ? win : (plat == 'darwin' ? mac : (plat == 'linux' ? linux : ''))
-        if(cmd === '' || proc === ''){
-            resolve(false)
+            setInterval(() => {
+                var local_launcher_version = JSON.parse(fs.readFileSync("./config.json", "utf8")).local_launcher_version
+                document.getElementById("version").innerHTML = "v" + local_launcher_version + "_BETA"
+                check();
+            }, 100)
+
+
+            setInterval(function () {
+                const exec = require('child_process').exec
+
+                function isRunning(win, mac, linux) {
+                    return new Promise(function (resolve, reject) {
+                        const plat = process.platform
+                        const cmd = plat == 'win32' ? 'tasklist' : (plat == 'darwin' ? 'ps -ax | grep ' + mac : (plat == 'linux' ? 'ps -A' : ''))
+                        const proc = plat == 'win32' ? win : (plat == 'darwin' ? mac : (plat == 'linux' ? linux : ''))
+                        if (cmd === '' || proc === '') {
+                            resolve(false)
+                        }
+                        exec(cmd, function (err, stdout, stderr) {
+                            resolve(stdout.toLowerCase().indexOf(proc.toLowerCase()) > -1)
+                        })
+                    })
+                }
+
+                isRunning('AirTool.exe', 'AirTool', 'AirTool').then((v) => {
+                    console.log(v)
+                    if (v == true) {
+                        document.getElementById("download_button").innerHTML = '<img src="./pics/play.svg" style="display: inline-block; height: 25px; margin-top: 0px;"><section style="display: inline-block;font-family: Roboto; font-weight: bold; color: white; font-size: 20px; padding-left: 10px; padding-top: -10px;">Running</section>'
+                        document.getElementById("download_button").style.backgroundColor = "grey"
+                        document.getElementById("download_button").onMouseUp = ""
+                    } else if (check() == true) {
+                        document.getElementById("download_button").style.backgroundColor = "#459121"
+                        document.getElementById("download_button").innerHTML = '<img src="./pics/play.svg" style="display: inline-block; height: 25px; margin-top: 0px;"><section style="display: inline-block;font-family: Roboto; font-weight: bold; color: white; font-size: 20px; padding-left: 10px; padding-top: -10px;">Play</section>'
+                        document.getElementById("download_button").setAttribute("onMouseUp", "launchapp()");
+                    } else {
+                        return
+                    }
+                })
+            }, 5000)
+
         }
-        exec(cmd, function(err, stdout, stderr) {
-            resolve(stdout.toLowerCase().indexOf(proc.toLowerCase()) > -1)
-        })
-    })
-}
+        ineedsomethingforasyncsry();
+    </script>
+    <div id="news">
+        <div id="news_header">
+            News
+        </div>
+        <div id="news_sub">
+            Latest changelog, announcements and much more
+        </div>
+        <div id="news_content">
+            <iframe style="width: 100%; border: 0px solid;" height="600px" id="niceFrame"
+                src="http://lukeairtool.net/LAT/news.html"></iframe>
 
-isRunning('AirTool.exe', 'AirTool', 'AirTool').then((v) =>{
-    console.log(v)
-    if(v == true){
-        document.getElementById("download_button").innerHTML = '<img src="./pics/play.svg" style="display: inline-block; height: 25px; margin-top: 0px;"><section style="display: inline-block;font-family: Roboto; font-weight: bold; color: white; font-size: 20px; padding-left: 10px; padding-top: -10px;">Running</section>'
-        document.getElementById("download_button").style.backgroundColor ="grey"
-        document.getElementById("download_button").onMouseUp =""
-    }else if(check() == true){
-        document.getElementById("download_button").style.backgroundColor ="#459121"
-        document.getElementById("download_button").innerHTML = '<img src="./pics/play.svg" style="display: inline-block; height: 25px; margin-top: 0px;"><section style="display: inline-block;font-family: Roboto; font-weight: bold; color: white; font-size: 20px; padding-left: 10px; padding-top: -10px;">Play</section>'
-        document.getElementById("download_button").setAttribute( "onMouseUp", "launchapp()" );
-    }else{
-        return
-    }
-})
-},5000)
-
-    }
-    ineedsomethingforasyncsry();
-</script>
-<div id="news">
-    <div id="news_header">
-        News
+        </div>
     </div>
-    <div id="news_sub">
-        Latest changelog, announcements and much more
-    </div>
-    <div id="news_content">
-        <iframe style="width: 100%; border: 0px solid;" height="600px" id="niceFrame" src="http://lukeairtool.net/LAT/news.html"></iframe>
-       
-    </div>
-</div>
 
 
 </body>
+
 </html>

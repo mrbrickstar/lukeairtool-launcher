@@ -1,6 +1,7 @@
 
 
 const {app} = require('electron');
+const electron = require('electron')
 const { BrowserWindow } = require('electron')
 const path = require('path');
 const fs = require("fs");
@@ -70,11 +71,24 @@ function createWindow () {
                 }
       doit();
   }
-  // win.webContents.openDevTools()
+  
+  const nativeTheme = electron.nativeTheme;
+  nativeTheme.themeSource = "system"
+
+  setInterval(()=>{
+    if(nativeTheme.shouldUseDarkColors != true){
+      win.setIcon(path.join(__dirname, '/html/pics/lightmode.png'));
+    }else{
+      win.setIcon(path.join(__dirname, '/html/pics/LOGO.png'));
+    }
+  },1000)
 }
 
 
 app.whenReady().then(createWindow)
+
+
+
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
