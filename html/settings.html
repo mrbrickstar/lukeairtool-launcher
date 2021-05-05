@@ -602,19 +602,23 @@ dialog.showOpenDialog({
 
 
 function save1(){
+
     var savegame = document.getElementById("stor_loc").value
     var checkBox = document.getElementById("myCheck");
     var lol = "false";
     if(checkBox.checked == true) lol = "true"
     console.log(savegame)
-  var save = fs.readFileSync("./config.json")
+  var save = JSON.parse(fs.readFileSync("./config.json"))
+  console.log(save)
+  var local_launcher_version = JSON.parse(fs.readFileSync("./config.json", "utf8")).local_launcher_version
     save = {
       storein : savegame,
       admin: lol,
-      local_launcher_version: JSON.parse(fs.readFileSync("./config.json", "utf8")).local_launcher_version
+      local_launcher_version: local_launcher_version
   }
-  fs.writeFile("./config.json", JSON.stringify(save), function(error){
-    console.log(error)
+  try{
+  fs.writeFileSync("config.json", JSON.stringify(save))
+  console.log("SAVED")
     // document.getElementById("Saved").innerHTML="Settings saved"
     document.getElementById("done").style=`animation-name: backin;
     animation-fill-mode: forwards;
@@ -653,7 +657,9 @@ function save1(){
         document.getElementById("box").style="display: none"
     },500)
     }, 3000)
-})
+  } catch (e) {
+    console.log(e)
+  }
 }
 </script>
 <div id="settings_container">
@@ -721,18 +727,20 @@ async function uninstall(){
     let store = fs.readFileSync("./config.json", "utf8");
     var storedir = JSON.parse(store).storein
     console.log(storedir)
-    fs.readdirSync(JSON.parse(store).storein).forEach(file => {
-    var stats1 = fs.statSync(JSON.parse(store).storein+"\\"+file);
-    if(stats1.isDirectory()){
-        // if(file== "Airliners") return
-        // if(file== "PaxSim") return
-        rimraf.sync(storedir+"\\"+file);
-    }else{
-        fs.unlinkSync(storedir+"\\"+file)
+   
+    var files = ["aa-DJ", "app.publish", "en", "GPUCache", "PaxSim", "pl", "x64", "x86", "airlinelist.txt", "AirTool.application", "AirTool.exe", "AirTool.exe.config", "AirTool.exe.manifest", "AirTool.pdb", "AirTool.xml", "Bogus.dll", "Bogus.xml", "CefSharp.Core.dll", "CefSharp.Core.pdb", "CefSharp.Core.xml", "CefSharp.dll", "CefSharp.OffScreen.dll", "CefSharp.OffScreen.pdb", "CefSharp.OffScreen.xml", "CefSharp.pdb", "CefSharp.WinForms.dll", "CefSharp.WinForms.pdb", "CefSharp.WinForms.xml", "CefSharp.Wpf.dll", "CefSharp.Wpf.pdb", "CefSharp.Wpf.xml", "CefSharp.xml", "debug.log", "EntityFramework.dll", "EntityFramework.SqlServer.dll", "EntityFramework.SqlServer.xml", "EntityFramework.xml", "FSUIPCClient.dll", "FSUIPCClient.xml", "GMap.NET.Core.dll", "GMap.NET.WindowsForms.dll", "GMap.NET.WindowsPresentation.dll", "MetroFramework.dll", "MetroFramework.Fonts.dll", "Newtonsoft.Json.dll", "Newtonsoft.Json.xml", "README.txt", "SQLite.Interop.dll", "System.Data.SQLite.dll", "System.Data.SQLite.EF6.dll", "System.Data.SQLite.Linq.dll", "System.Data.SQLite.xml", "version.json", "WordList2.txt"]
+     for(i=0; i < files.length; i++){
+        
+        if (fs.existsSync(storedir+"\\"+files[i])) {
+            var stats1 = fs.statSync(JSON.parse(store).storein+"\\"+files[i]);
+            if(stats1.isDirectory()){
+            rimraf.sync(storedir+"\\"+files[i]);
+            }else{
+                fs.unlinkSync(storedir+"\\"+files[i])
+            }
+        }
+        } 
     }
-
- });
-}
 
         var local_launcher_version = JSON.parse(fs.readFileSync("./config.json", "utf8")).local_launcher_version
         document.getElementById("version").innerHTML = "v" + local_launcher_version + "_BETA"

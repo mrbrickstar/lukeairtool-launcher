@@ -111,6 +111,7 @@
             border-radius: 5px;
             display: block;
             margin-right: 190px;
+            transition: 0.3s ease;
         }
 
         #news {
@@ -669,11 +670,11 @@ align-items: center; height: 0px;">
                     }, 100)
 
                     fileStream.on("finish", async function () {
+                        clearInterval(yk)
                         let win = require('electron').remote.getCurrentWindow();
                         win.setProgressBar(1)
                         fileStream.close()
                         console.log("Done")
-                        clearInterval(yk)
                         document.getElementById("download_button").innerHTML = '<img src="./pics/play.svg" style="display: inline-block; height: 25px; margin-top: 0px;"><section style="display: inline-block;font-family: Roboto; font-weight: bold; color: white; font-size: 20px; padding-left: 10px; padding-top: -10px;">Play</section>'
                         document.getElementById("download_button").setAttribute("onMouseUp", "launchapp()");
                         document.getElementById("download_progress_number").innerText = `16MB/16MB`
@@ -690,6 +691,9 @@ align-items: center; height: 0px;">
                                 console.log(e)
                             }
                         }
+                        setTimeout(function(){
+                            document.getElementById("download_progress_number").innerText = `Installing...`
+                        },1000)
                         var hi = fs.createReadStream('airtool.zip')
                             .pipe(unzipper.Extract({ path: store }))
                         hi.on("finish", async function () {
@@ -779,7 +783,7 @@ align-items: center; height: 0px;">
                 await fetch(url, settings)
                     .then(res => res.json())
                     .then((json) => {
-                        console.log(json)
+                        // console.log(json)
                         filesize = json.filesize
                         version = json.version
                         launcher_version = json.launcher
@@ -805,8 +809,6 @@ align-items: center; height: 0px;">
                 } catch (err) {
                     installedversion = version
                 }
-                console.log("Installed: ", installedversion)
-                console.log("Server: ", version)
 
             
 

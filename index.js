@@ -25,6 +25,7 @@ function createWindow () {
      preload: path.join(__dirname, 'preloader.js'),
       enableRemoteModule: true,
       nodeIntegration: true,
+      contextIsolation: false,
     }
   })
   app.commandLine.appendSwitch ("disable-http-cache");
